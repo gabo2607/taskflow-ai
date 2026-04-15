@@ -5,12 +5,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev      # Start dev server at localhost:3000
-npm run build    # Production build (also runs type-check)
-npm run start    # Start production server
-```
+npm run dev             # Start dev server at localhost:3000
+npm run build           # Production build (also runs type-check)
+npm run start           # Start production server
 
-No linter or test runner is configured.
+# Unit / integration (Vitest + jsdom)
+npm test                # Run once
+npm run test:watch      # Watch mode
+npm run test:coverage   # Run with v8 coverage (80% threshold)
+
+# E2E (Playwright, Chromium only)
+npm run test:e2e        # Headless
+npm run test:e2e:ui     # Interactive UI mode
+```
 
 ## Environment Variables
 
@@ -20,6 +27,10 @@ NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ANTHROPIC_API_KEY=        # chat action (claude-sonnet-4-5)
 VOYAGE_API_KEY=           # embeddings via Voyage AI (voyage-3.5, 1024-dim)
+
+# Required for E2E tests only
+TEST_USER_EMAIL=
+TEST_USER_PASSWORD=
 ```
 
 ## Architecture
@@ -30,7 +41,7 @@ VOYAGE_API_KEY=           # embeddings via Voyage AI (voyage-3.5, 1024-dim)
 
 1. **Server Actions** (`src/actions/`) call Supabase directly using `createClient()` from `src/lib/supabase/server.ts`.
 2. **Dashboard page** (`src/app/dashboard/page.tsx`) fetches tasks server-side via `getTasks()` and passes them to the `KanbanBoard` client component.
-3. **KanbanBoard** manages client state through three hooks:
+3. **KanbanBoard** (`src/components/kanban-board.tsx`) manages client state through three hooks in `src/hooks/`:
    - `useTasksByStatus` — groups tasks into the three columns
    - `useMoveTask` — calls `updateTaskStatus` server action with optimistic updates
    - `useKanbanDnd` — wraps dnd-kit events and delegates to `moveTask`
@@ -49,15 +60,32 @@ Defined in `src/types/tasks.ts`: `Task`, `TaskStatus` (`"todo" | "in_progress" |
 
 Tailwind CSS v4 (PostCSS). Shadcn components are in `src/components/ui/`. Dark theme with green accents — background `#0f0f1a`. Spanish labels throughout.
 
+`kanban-board-static.tsx` is an unused static prototype (its own full-page layout with header). The live dashboard uses `KanbanBoard` (DnD version) with the header defined directly in `dashboard/page.tsx`.
+
+### Task actions
+
+`src/actions/tasks.ts` exposes `getTasks`, `updateTaskStatus`, and `createTask`. There is no `deleteTask` yet — add it there and call `embedTask` to keep the vector store in sync.
+
+`createTask` sets `position = max(existing positions in "todo") + 1` and calls `embedTask` after insert. Entry point is `CreateTaskDialog` (`src/components/create-task-dialog.tsx`), rendered in the dashboard header.
+
+### Hooks
+
+`src/hooks/` contains the three client-side hooks used by `KanbanBoard`:
+- `use-tasks-by-status.ts` — groups a flat `Task[]` into `{ todo, in_progress, done }`
+- `use-move-task.ts` — holds task list state, applies optimistic updates, calls `updateTaskStatus`
+- `use-kanban-dnd.ts` — wires dnd-kit sensors/events and delegates to `moveTask`
+
 ### RAG / Chat pipeline
 
-`src/components/chat/` renders the chat UI. On submit it calls `chatWithTasks` (Server Action in `src/actions/chat.ts`), which:
+`src/components/chat/` renders the chat UI. The input supports voice dictation via the browser Web Speech API (Chrome/Chromium only — `window.SpeechRecognition` / `webkitSpeechRecognition`, language `es-ES`). On submit it calls `chatWithTasks` (Server Action in `src/actions/chat.ts`), which:
 
 1. Embeds the query via Voyage AI (`src/lib/embeddings.ts` → `embedQuery`)
 2. Calls `searchTasks` (`src/actions/search.ts`) which runs the `match_task_embeddings` Supabase RPC
 3. Passes retrieved task snippets as context to Claude (`claude-sonnet-4-5`) and streams the answer
 
-When a task is created or updated, call `embedTask` (`src/lib/embed-task.ts`) to upsert its vector into `task_embeddings`.
+When a task is created or updated, call `embedTask` (`src/lib/embed-task.ts`) to upsert its vector into `task_embeddings`. `taskToContent` in that file defines the text format sent to the embeddings model. Note: `embedTask` uses explicit delete-then-insert (not Supabase's `.upsert()`).
+
+`chatWithTasks` calls `searchTasks` with `matchThreshold=0.4` and `matchCount=8` — intentionally more permissive than `searchTasks`' own defaults (`0.5`, `5`).
 
 ### Database migrations
 
@@ -77,3 +105,4 @@ Cuando el contexto sea largo:
 - Usar /compact antes de continuar
 - Usar /cost al terminar cada tarea
 - Modelo por defecto: Sonnet. Solo Opus para arquitectura compleja
+

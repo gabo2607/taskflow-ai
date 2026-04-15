@@ -1,0 +1,333 @@
+[    1592ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25630
+[    1827ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <main className="p-6 grid g...">
+      <div className="lg:col-span-2">
+        <KanbanBoard initialTasks={[...]}>
+          <DndContext id="kanban-dnd" sensors={[...]} collisionDetection={function closestCorners} ...>
+            <div className="grid grid-...">
+              <KanbanColumn id="todo" label="Por hacer" tasks={[...]}>
+                <div ref={function} className="rounded-xl...">
+                  <div>
+                  <SortableContext items={[...]} strategy={function verticalListSortingStrategy}>
+                    <div className="flex flex-...">
+                      <SortableTaskCard task={{id:"86713d...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"dd3636...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"88afaf...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"094750...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"4c6364...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"d15170...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"d5726f...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"a4525d...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"0e59c9...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"844dcc...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+              <KanbanColumn id="in_progress" label="En progreso" tasks={[...]}>
+                <div ref={function} className="rounded-xl...">
+                  <div>
+                  <SortableContext items={[...]} strategy={function verticalListSortingStrategy}>
+                    <div className="flex flex-...">
+                      <SortableTaskCard task={{id:"bd2f53...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"f69304...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"64068c...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"2b6142...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"3fc25c...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"ac61f8...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+              <KanbanColumn id="done" label="Terminado" tasks={[...]}>
+                <div ref={function} className="rounded-xl...">
+                  <div>
+                  <SortableContext items={[...]} strategy={function verticalListSortingStrategy}>
+                    <div className="flex flex-...">
+                      <SortableTaskCard task={{id:"2d4975...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"bc0028...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"ba4f94...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"d31f3d...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+                      <SortableTaskCard task={{id:"c65b5a...", ...}}>
+                        <div
+                          ref={function}
+                          style={{transform:undefined,transition:undefined}}
+                          role="button"
+                          tabIndex={0}
+                          aria-disabled={false}
+                          aria-pressed={undefined}
+                          aria-roledescription="sortable"
++                         aria-describedby="kanban-dnd"
+-                         aria-describedby="DndDescribedBy-13"
+                          onPointerDown={function}
+                          onKeyDown={function}
+                        >
+            ...
+            ...
+            ...
+      ...
+ @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:56

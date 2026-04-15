@@ -1,0 +1,385 @@
+[    1646ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25630
+[    1889ms] Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/dashboard" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+              <SegmentViewNode type="page" pagePath="dashboard/...">
+                <SegmentTrieNode>
+                <DashboardPage>
+                  <div className="min-h-scre...">
+                    <header>
+                    <main className="p-6 grid g...">
+                      ...
+                        <div className="grid grid-...">
+                          ...
+                            <div className="flex flex-...">
+                              <SortableTaskCard task={{id:"86713d...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"dd3636...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"88afaf...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"094750...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"4c6364...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"d15170...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"d5726f...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"a4525d...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"0e59c9...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"844dcc...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                          ...
+                            <div className="flex flex-...">
+                              <SortableTaskCard task={{id:"bd2f53...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"f69304...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"64068c...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"2b6142...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"3fc25c...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"ac61f8...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                          ...
+                            <div className="flex flex-...">
+                              <SortableTaskCard task={{id:"2d4975...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"bc0028...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"ba4f94...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"d31f3d...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                              <SortableTaskCard task={{id:"c65b5a...", ...}}>
+                                <div
+                                  ref={function}
+                                  style={{transform:undefined,transition:undefined}}
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-disabled={false}
+                                  aria-pressed={undefined}
+                                  aria-roledescription="sortable"
++                                 aria-describedby="DndDescribedBy-0"
+-                                 aria-describedby="DndDescribedBy-12"
+                                  onPointerDown={function}
+                                  onKeyDown={function}
+                                >
+                      <div className="flex flex-...">
+                        <h2>
+                        <div className="h-[600px]">
+                          <TaskChat>
+                            <div className="flex flex-...">
+                              <div>
+                              <div>
+                              <form onSubmit={function handleSubmit} className="p-3 border...">
+                                <input>
+                                <button
++                                 type="button"
+-                                 type="submit"
+                                  onClick={function toggleRecording}
++                                 disabled={false}
+-                                 disabled=""
++                                 title="Dictar mensaje (solo Chrome)"
+-                                 title={null}
++                                 className="shrink-0 size-9 rounded-lg flex items-center justify-center transition-co..."
+-                                 className="shrink-0 size-9 rounded-lg bg-green-500 hover:bg-green-600 disabled:opaci..."
+                                >
+                                  <Mic className="size-4 tex...">
+                                    <svg
+                                      ref={null}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width={24}
+                                      height={24}
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      strokeWidth={2}
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
++                                     className="lucide lucide-mic size-4 text-neutral-300"
+-                                     className="lucide lucide-send size-4 text-white"
+                                      aria-hidden="true"
+                                    >
+                                      <path
++                                       d="M12 19v3"
+-                                       d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5..."
+                                      >
+                                      <path
++                                       d="M19 10v2a7 7 0 0 1-14 0v-2"
+-                                       d="m21.854 2.147-10.94 10.939"
+                                      >
++                                     <rect x="9" y="2" width="6" height="13" rx="3">
+                                ...
+              ...
+            ...
+
+    at throwOnHydrationMismatch (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:4506:11)
+    at beginWork (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:11107:17)
+    at runWithFiberInDEV (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:872:30)
+    at performUnitOfWork (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:15727:22)
+    at workLoopConcurrentByScheduler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:15721:9)
+    at renderRootConcurrent (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:15696:15)
+    at performWorkOnRoot (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14990:13)
+    at performWorkOnRootViaSchedulerTask (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:16816:7)
+    at MessagePort.performWorkUntilDeadline (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/scheduler/cjs/scheduler.development.js:45:48)

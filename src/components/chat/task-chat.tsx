@@ -45,8 +45,15 @@ export function TaskChat() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [recording, setRecording] = useState(false);
+  // Initialise to false so the server and first client render match.
+  // Updated after mount so the mic button only appears when the API is available.
+  const [speechSupported, setSpeechSupported] = useState(false);
   const recognitionRef = useRef<ISpeechRecognition | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setSpeechSupported(!!getSpeechRecognitionClass());
+  }, []);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -106,8 +113,6 @@ export function TaskChat() {
       setLoading(false);
     }
   }
-
-  const speechSupported = !!getSpeechRecognitionClass();
 
   return (
     <div className="flex flex-col h-full bg-[#0f0f1a] border border-white/10 rounded-xl overflow-hidden">

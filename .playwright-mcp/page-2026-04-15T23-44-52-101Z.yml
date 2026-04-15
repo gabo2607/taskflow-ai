@@ -1,0 +1,269 @@
+- generic:
+  - generic:
+    - banner:
+      - generic:
+        - generic: T
+        - generic: TaskFlow AI
+      - button [expanded]:
+        - img
+        - text: Nueva Tarea
+      - generic:
+        - generic: usuario-a@test.com
+        - generic:
+          - button:
+            - img
+            - text: Sign Out
+    - main:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - heading [level=2]: Por hacer
+              - generic: "10"
+            - generic:
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Deploy en Vercel
+                      - generic: MEDIA
+                      - paragraph: CI/CD automatizado
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Deploy en Vercel
+                      - generic: MEDIA
+                      - paragraph: CI/CD automatizado
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Agregar Dark Mode
+                      - generic: BAJA
+                      - paragraph: Tema oscuro con next-themes
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Agregar Dark Mode
+                      - generic: BAJA
+                      - paragraph: Tema oscuro con next-themes
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Tests E2E
+                      - generic: MEDIA
+                      - paragraph: Playwright para flujo completo
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Tests E2E
+                      - generic: MEDIA
+                      - paragraph: Playwright para flujo completo
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Demo MCP en vivo
+                      - generic: ALTA
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Modelo Behavior
+                      - generic: ALTA
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: gdsgds
+                      - generic: MEDIA
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: dwfwfwfqw
+                      - generic: MEDIA
+                    - img
+          - generic:
+            - generic:
+              - heading [level=2]: En progreso
+              - generic: "6"
+            - generic:
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Construir Kanban Board
+                      - generic: ALTA
+                      - paragraph: Drag & drop con dnd-kit
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Diseñar base de datos
+                      - generic: ALTA
+                      - paragraph: Schema con RLS
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Implementar RAG
+                      - generic: MEDIA
+                      - paragraph: Chat inteligente con pgvector
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Crear componente Kanban
+                      - generic: ALTA
+                      - paragraph: UI con drag and drop
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Implementar RAG
+                      - generic: MEDIA
+                      - paragraph: Chat inteligente con pgvector
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Implementar RAG
+                      - generic: MEDIA
+                      - paragraph: Chat con contexto de tareas
+                    - img
+          - generic:
+            - generic:
+              - heading [level=2]: Terminado
+              - generic: "5"
+            - generic:
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - generic: Construir Kanban Board
+                      - generic: ALTA
+                      - paragraph: Drag & drop con dnd-kit
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - generic: Diseñar base de datos
+                      - generic: ALTA
+                      - paragraph: Schema con RLS
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - generic: Configurar Supabase
+                      - generic: ALTA
+                      - paragraph: Setup inicial del proyecto
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - generic: Configurar Supabase
+                      - generic: ALTA
+                      - paragraph: Auth + RLS policies
+                    - img
+              - button:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - generic: Configurar Supabase
+                      - generic: ALTA
+                      - paragraph: Auth + RLS policies
+                    - img
+        - status
+      - generic:
+        - heading [level=2]: Tu asistente IA
+        - generic:
+          - generic:
+            - generic:
+              - img
+              - generic: Asistente de Tareas
+            - generic:
+              - paragraph: Pregúntame sobre tus tareas
+            - generic:
+              - textbox:
+                - /placeholder: ¿Qué tareas tengo pendientes?
+              - button:
+                - img
+              - button [disabled]:
+                - img
+  - generic [ref=e381] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e382]:
+      - img [ref=e383]
+    - generic [ref=e386]:
+      - button "Open issues overlay" [ref=e387]:
+        - generic [ref=e388]:
+          - generic [ref=e389]: "0"
+          - generic [ref=e390]: "1"
+        - generic [ref=e391]: Issue
+      - button "Collapse issues badge" [ref=e392]:
+        - img [ref=e393]
+  - alert
+  - dialog "Nueva Tarea" [ref=e397]:
+    - heading "Nueva Tarea" [level=2] [ref=e399]
+    - generic [ref=e400]:
+      - generic [ref=e401]:
+        - text: Título
+        - textbox "Título" [active] [ref=e402]:
+          - /placeholder: Nombre de la tarea
+      - generic [ref=e403]:
+        - text: Prioridad
+        - combobox "Prioridad" [ref=e404]:
+          - option "BAJA"
+          - option "MEDIA" [selected]
+          - option "ALTA"
+          - option "CRÍTICA"
+      - generic [ref=e405]:
+        - button "Cancelar" [ref=e406]
+        - button "Crear" [ref=e407]

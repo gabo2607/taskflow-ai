@@ -1,3 +1,5 @@
+// Tipos principales del dominio de tareas.
+// KANBAN_COLUMNS y PRIORITY_CONFIG son las constantes de capa UI — usar estas en vez de hardcodear strings.
 export type TaskStatus = "todo" | "in_progress" | "done";
 
 export type TaskPriority = "low" | "medium" | "high" | "critical";

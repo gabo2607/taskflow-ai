@@ -1,0 +1,18 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: T
+      - generic [ref=e6]: TaskFlow AI
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - text: Email
+        - textbox "Email" [ref=e9]:
+          - /placeholder: tu@email.com
+      - generic [ref=e10]:
+        - text: Contraseña
+        - textbox "Contraseña" [ref=e11]:
+          - /placeholder: ••••••••
+      - button "Iniciar sesión" [ref=e12]
+  - button "Open Next.js Dev Tools" [ref=e18] [cursor=pointer]:
+    - img [ref=e19]
+  - alert [ref=e22]

@@ -2,7 +2,31 @@
   "permissions": {
     "allow": [
       "Bash(npx tsc:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(claude:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_fill_form",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__github__search_repositories",
+      "Bash(git -C /c/Users/GABO/taskflow-ai remote get-url origin)",
+      "Bash(git -C /c/Users/GABO/taskflow-ai remote -v)",
+      "mcp__github__create_issue",
+      "Bash(gh issue:*)",
+      "Bash(winget list:*)",
+      "Bash(where gh:*)",
+      "Bash(git config:*)",
+      "Skill(update-config)",
+      "Bash(node:*)",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_press_key",
+      "mcp__playwright__browser_type",
+      "Bash(npm test *)",
+      "Bash(npm run *)",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_close"
     ]
   }
 }

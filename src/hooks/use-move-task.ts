@@ -1,11 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { type Task, type TaskStatus } from "@/types/tasks";
 import { updateTaskStatus } from "@/actions/tasks";
 
 export function useMoveTask(initialTasks: Task[]) {
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
+
+  // Sync whenever the server re-renders the page with fresh data
+  // (e.g. after createTask / revalidatePath triggers a router refresh).
+  useEffect(() => {
+    setTasks(initialTasks);
+  }, [initialTasks]);
 
   async function moveTask(taskId: string, newStatus: TaskStatus) {
     const previous = [...tasks];

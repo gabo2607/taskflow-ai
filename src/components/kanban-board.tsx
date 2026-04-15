@@ -17,7 +17,7 @@ export function KanbanBoard({ initialTasks }: KanbanBoardProps) {
   const { sensors, activeTask, handleDragStart, handleDragEnd } = useKanbanDnd(tasks, moveTask);
 
   return (
-    <DndContext sensors={sensors} collisionDetection={closestCorners} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <DndContext id="kanban-dnd" sensors={sensors} collisionDetection={closestCorners} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {KANBAN_COLUMNS.map((col) => (
           <KanbanColumn key={col.id} id={col.id} label={col.label} tasks={tasksByStatus[col.id]} />
