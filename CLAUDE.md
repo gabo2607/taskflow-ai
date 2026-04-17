@@ -13,11 +13,36 @@ npm run start           # Start production server
 npm test                # Run once
 npm run test:watch      # Watch mode
 npm run test:coverage   # Run with v8 coverage (80% threshold)
+npx vitest run src/actions/__tests__/tasks.test.ts  # Run a single test file
 
-# E2E (Playwright, Chromium only)
+# E2E (Playwright, Chromium only — requires dev server running)
 npm run test:e2e        # Headless
 npm run test:e2e:ui     # Interactive UI mode
+
+# Other
+npx eslint . --fix      # Lint and auto-fix
+npx tsc --noEmit        # Type check only
+
+# CI (same steps as GitHub Actions)
+npx eslint . --max-warnings 0 && npx tsc --noEmit && npm run test:coverage && npm run build
+
+# Deploy (Vercel CLI)
+vercel                  # Preview deploy
+vercel --prod           # Production deploy (manual)
 ```
+
+## CI/CD
+
+Pipeline at `.github/workflows/ci-cd.yml` has two jobs:
+
+- **ci**: runs on every push/PR — lint → tsc → vitest --coverage → next build
+- **deploy-production**: runs only on `main` after ci passes — vercel pull → vercel build --prod → vercel deploy --prod
+
+Required GitHub secrets (Settings → Secrets and variables → Actions):
+`VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`,
+`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`,
+`ANTHROPIC_API_KEY`, `VOYAGE_API_KEY`, `GROQ_API_KEY`,
+`SUPABASE_SERVICE_ROLE_KEY`, `TEST_USER_EMAIL`, `TEST_USER_PASSWORD`
 
 ## Environment Variables
 
@@ -81,9 +106,11 @@ Tailwind CSS v4 (PostCSS). Shadcn components are in `src/components/ui/`. Dark t
 
 1. Embeds the query via Voyage AI (`src/lib/embeddings.ts` → `embedQuery`)
 2. Calls `searchTasks` (`src/actions/search.ts`) which runs the `match_task_embeddings` Supabase RPC
-3. Passes retrieved task snippets as context to Claude (`claude-sonnet-4-5`) and streams the answer
+3. Passes retrieved task snippets as context to Claude (`claude-sonnet-4-5`) and returns the answer (blocking, not streaming)
 
-When a task is created or updated, call `embedTask` (`src/lib/embed-task.ts`) to upsert its vector into `task_embeddings`. `taskToContent` in that file defines the text format sent to the embeddings model. Note: `embedTask` uses explicit delete-then-insert (not Supabase's `.upsert()`).
+When a task is created, `embedTask` (`src/lib/embed-task.ts`) is called to upsert its vector into `task_embeddings`. `taskToContent` in that file defines the text format (title + description + priority + status). Note: `embedTask` uses explicit delete-then-insert (not Supabase's `.upsert()`).
+
+**Gap**: `updateTaskStatus` does NOT call `embedTask`, so the `status` field in the vector goes stale after a move. If you add `updateTask` (title/description edits), call `embedTask` there too.
 
 `chatWithTasks` calls `searchTasks` with `matchThreshold=0.4` and `matchCount=8` — intentionally more permissive than `searchTasks`' own defaults (`0.5`, `5`).
 
@@ -91,18 +118,22 @@ When a task is created or updated, call `embedTask` (`src/lib/embed-task.ts`) to
 
 SQL migrations live in `supabase/migrations/` (numbered `004_`…). The `task_embeddings` table (migration `005`) uses `halfvec(1024)` with an HNSW cosine index and RLS. The `match_task_embeddings` function (migration `006`) is `SECURITY DEFINER` and must always set `search_path = public`.
 
+### Tests
 
-### Reglas obligatorias:
-- Siempre TypeScript strict, nunca usar 'any'
-- Server Components por defecto, 'use client' solo cuando necesario
-- Server Actions para todas las mutaciones
-- RLS habilitado en todas las tablas
-- API keys solo en variables de entorno, nunca en el codigo
-- useMemo para calculos pesados
-- Manejo de errores en todos los try/catch
+Unit tests live in `src/**/__tests__/*.test.ts`. Coverage is measured only for `src/actions/**`, `src/hooks/**`, and `src/lib/**` (80% threshold). Components are excluded from coverage.
 
-Cuando el contexto sea largo:
-- Usar /compact antes de continuar
-- Usar /cost al terminar cada tarea
-- Modelo por defecto: Sonnet. Solo Opus para arquitectura compleja
+E2E tests live in `e2e/`. `auth.setup.ts` authenticates directly via the Supabase REST API (bypassing the login UI) and saves the session cookie to `e2e/.auth/user.json`. The `chromium` project depends on `setup`, so auth runs first. Playwright auto-starts the dev server when none is already running.
+
+### Mandatory rules
+
+- TypeScript strict — never use `any`
+- Server Components by default; `'use client'` only when required
+- Server Actions for all mutations
+- RLS enabled on all tables
+- Use `KANBAN_COLUMNS` / `PRIORITY_CONFIG` constants instead of hardcoding status/priority strings
+- `useMemo` for heavy computations
+- All `try/catch` blocks must handle errors explicitly
+
+When context grows long: use `/compact` before continuing, `/cost` after finishing a task.
+
 
