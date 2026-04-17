@@ -38,7 +38,7 @@ jobs:
         run: npm install
 
       - name: Lint
-        run: npx eslint . --max-warnings 0
+        run: npx next lint --max-warnings 0
 
       - name: Type-check
         run: npx tsc --noEmit
