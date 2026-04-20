@@ -2,7 +2,7 @@
 
 > Tablero Kanban inteligente con asistente de IA conversacional, búsqueda semántica (RAG) y dictado por voz.
 
-[![CI/CD](https://github.com/tu-usuario/taskflow-ai/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/tu-usuario/taskflow-ai/actions/workflows/ci-cd.yml)
+[![CI/CD](https://github.com/gabo2607/taskflow-ai/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/gabo2607/taskflow-ai/actions/workflows/ci-cd.yml)
 [![Deploy](https://img.shields.io/badge/deploy-vercel-black?logo=vercel)](https://taskflow-ai.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=nextdotjs)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org)
@@ -43,7 +43,7 @@
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/taskflow-ai.git
+git clone https://github.com/gabo2607/taskflow-ai.git
 cd taskflow-ai
 ```
 
@@ -103,7 +103,7 @@ npm run start           # Servidor de producción
 # Tests unitarios (Vitest)
 npm test                # Ejecución única
 npm run test:watch      # Modo watch
-npm run test:coverage   # Con cobertura (umbral 80%)
+npm run test:coverage   # Con cobertura (umbral 20%)
 
 # Tests E2E (Playwright — requiere dev server corriendo)
 npm run test:e2e        # Headless

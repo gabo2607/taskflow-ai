@@ -26,7 +26,8 @@
       "Bash(npm test *)",
       "Bash(npm run *)",
       "mcp__playwright__browser_evaluate",
-      "mcp__playwright__browser_close"
+      "mcp__playwright__browser_close",
+      "Bash(git remote *)"
     ]
   }
 }

@@ -12,7 +12,7 @@ npm run start           # Start production server
 # Unit / integration (Vitest + jsdom)
 npm test                # Run once
 npm run test:watch      # Watch mode
-npm run test:coverage   # Run with v8 coverage (80% threshold)
+npm run test:coverage   # Run with v8 coverage (20% threshold — lines/functions/branches/statements)
 npx vitest run src/actions/__tests__/tasks.test.ts  # Run a single test file
 
 # E2E (Playwright, Chromium only — requires dev server running)
@@ -87,6 +87,10 @@ Tailwind CSS v4 (PostCSS). Shadcn components are in `src/components/ui/`. Dark t
 
 `kanban-board-static.tsx` is an unused static prototype (its own full-page layout with header). The live dashboard uses `KanbanBoard` (DnD version) with the header defined directly in `dashboard/page.tsx`.
 
+### Auth actions
+
+`src/actions/auth.ts` exposes `signOut`, which calls `supabase.auth.signOut()`, revalidates the layout, then redirects to `/`.
+
 ### Task actions
 
 `src/actions/tasks.ts` exposes `getTasks`, `updateTaskStatus`, and `createTask`. There is no `deleteTask` yet — add it there and call `embedTask` to keep the vector store in sync.
@@ -120,7 +124,11 @@ SQL migrations live in `supabase/migrations/` (numbered `004_`…). The `task_em
 
 ### Tests
 
-Unit tests live in `src/**/__tests__/*.test.ts`. Coverage is measured only for `src/actions/**`, `src/hooks/**`, and `src/lib/**` (80% threshold). Components are excluded from coverage.
+Unit tests live in `src/**/__tests__/*.test.ts`. Coverage is measured only for `src/actions/**`, `src/hooks/**`, and `src/lib/**` (20% threshold — all four metrics). Components are excluded from coverage.
+
+Use the `makeTask(overrides?)` factory pattern (see `src/hooks/__tests__/use-tasks-by-status.test.ts`) when building `Task` fixtures in tests — it provides sensible defaults and lets you override only what the test cares about.
+
+Currently untested: `use-move-task.ts` and `use-kanban-dnd.ts` have no unit tests.
 
 E2E tests live in `e2e/`. `auth.setup.ts` authenticates directly via the Supabase REST API (bypassing the login UI) and saves the session cookie to `e2e/.auth/user.json`. The `chromium` project depends on `setup`, so auth runs first. Playwright auto-starts the dev server when none is already running.
 
